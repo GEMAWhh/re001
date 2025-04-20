@@ -1,1 +1,116 @@
-<p>田大人您好，我是您最忠实的私生
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是田敏最忠实的私生</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff5f5;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .message {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .heart {
+            color: #ff4081;
+            font-size: 2em;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .heart:hover {
+            transform: scale(1.2);
+        }
+        .counter {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .support-btn {
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .support-btn:hover {
+            background-color: #e91e63;
+        }
+        .fan-art {
+            margin-top: 30px;
+            border: 2px dashed #ff4081;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>我是田敏最忠实的私生</h1>
+    
+    <div class="message">
+        <p>田敏，你是最棒的！我会永远支持你！</p>
+        <p>你的每一个作品都让我心动不已，期待你未来更多精彩的表现！</p>
+    </div>
+    
+    <div>
+        <p>点击爱心表达你的爱：</p>
+        <div class="heart" onclick="increaseLikes()">❤️</div>
+        <div class="counter">点赞数: <span id="likeCount">0</span></div>
+    </div>
+    
+    <button class="support-btn" onclick="showSupport()">表达支持</button>
+    
+    <div class="fan-art" id="fanArt" style="display: none;">
+        <h3>粉丝留言</h3>
+        <p id="supportMessage"></p>
+    </div>
+    
+    <script>
+        let likeCount = 0;
+        
+        function increaseLikes() {
+            likeCount++;
+            document.getElementById('likeCount').textContent = likeCount;
+            
+            // 爱心动画
+            const heart = document.querySelector('.heart');
+            heart.style.transform = 'scale(1.5)';
+            setTimeout(() => {
+                heart.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        function showSupport() {
+            const messages = [
+                "田敏加油！我们永远支持你！",
+                "你是最闪耀的星星！",
+                "期待你的下一个作品！",
+                "你的努力我们都看在眼里！",
+                "永远做你的忠实粉丝！"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('supportMessage').textContent = randomMessage;
+            
+            const fanArt = document.getElementById('fanArt');
+            fanArt.style.display = fanArt.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
